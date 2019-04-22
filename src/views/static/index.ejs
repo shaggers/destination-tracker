@@ -9,6 +9,8 @@
 
       <main class="container">
 
+        <% include ../static/partials/messages.ejs %>
+
         <header class="jumbotron my-4">
           <h1 class="display-3">Welcome to the Destination Tracker</h1>
           <p class="lead">This app allows you to keep track of places you want to visit</p>
@@ -34,7 +36,7 @@
         </section>
 
         <section style="text-align: center; margin-top: 50px;">
-            <a href="#" style="width: 200px;" class="btn btn-warning btn-lg">Create Account</a>
+            <a href="/users/sign_up" style="width: 200px;" class="btn btn-warning btn-lg">Create Account</a>
             <a href="#" style="width: 200px;" class="btn btn-warning btn-lg">Sign In</a>
         </section>
 
