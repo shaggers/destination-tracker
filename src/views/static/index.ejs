@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ./partials/head.ejs %>
+  </head>
+  <body>
+
+    <% include ./partials/navbar.ejs %>
+
+      <main class="container">
+
+        <header class="jumbotron my-4">
+          <h1 class="display-3">Welcome to the Destination Tracker</h1>
+          <p class="lead">This app allows you to keep track of places you want to visit</p>
+        </header>
+
+        <section class="row text-center border rounded-bottom" style="padding: 30px;">
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Post</h4>
+            <p class="card-text">Create posts to keep track of places to visit</p>
+          </section>
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Explore</h4>
+            <p class="card-text">Mark locations at any country in the world</p>
+          </section>
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Plan</h4>
+            <p class="card-text">Plan your trip by finding attractions you want to visit</p>
+          </section>
+
+        </section>
+
+        <section style="text-align: center; margin-top: 50px;">
+            <a href="#" style="width: 200px;" class="btn btn-warning btn-lg">Create Account</a>
+            <a href="#" style="width: 200px;" class="btn btn-warning btn-lg">Sign In</a>
+        </section>
+
+      </main>
+
+      <% include ./partials/baseScripts.ejs %>
+    </body>
+</html>
