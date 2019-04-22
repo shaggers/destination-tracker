@@ -1,6 +1,6 @@
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const User = require("../db/models").User;
+const User = require("../db/models").Users;
 const authHelper = require("../auth/helpers");
 
 module.exports = {
@@ -29,7 +29,7 @@ module.exports = {
     });
 
     passport.deserializeUser((id, callback) => {
-      User.findById(id)
+      User.findByPk(id)
       .then((user) => {
         callback(null, user);
       })

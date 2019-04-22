@@ -1,8 +1,8 @@
 body {
-    padding-top: 100px;
+    padding-top: 65px;
 }
 
-#signUp {
+.userActionForm {
     margin-top: 7%;
     margin-left: 27%;
     padding-left: 30px;
