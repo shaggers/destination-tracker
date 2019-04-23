@@ -9,3 +9,11 @@ body {
     width: 500px;
     border-left: 1px solid black;
 }
+
+#continents{
+    margin: 4%;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    padding: 5%;
+}

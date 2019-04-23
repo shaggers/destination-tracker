@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ../static/partials/head.ejs %>
+  </head>
+  <body>
+    <main class="container">
+      <% include ../static/partials/navbar.ejs %>
+      <% include ../static/partials/messages.ejs %>
+
+      <h1>Navigation</h1>
+
+      <ul class="list-group">
+
+        <div class="container">
+            <div class="row">
+                <% continents.forEach((continent) => { %>
+                <li id="continents" class="list-group-item border rounded col-lg-3 col-sm-5">
+                    <a href="/navigation/<%= continent.id %>"> <%= continent.name %> </a>
+                </li>
+                <% }) %>
+            </div>
+        </div>
+
+      </ul>
+
+    </main>
+  </body>
+</html>

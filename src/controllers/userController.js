@@ -20,7 +20,7 @@ module.exports = {
        } else {
          passport.authenticate("local")(req, res, () => {
            req.flash("notice", "You've successfully signed in!");
-           res.redirect("/");
+           res.redirect("/navigation");
          })
        }
      });
@@ -29,15 +29,36 @@ module.exports = {
         res.render("users/sign_in");
     },
     signIn(req, res, next){
+
+      passport.authenticate('local', function(err, user, info) {
+ 
+        if(err){
+          req.flash("notice", "Sign in failed. Please try again.")
+          return next(err);
+        }
+        if(!user){
+            req.flash("notice", "The email or password you entered was incorrect");
+            return res.redirect('/users/sign_in')
+        } 
+        req.login(user, function(err) {
+            req.flash("notice", "You've successfully signed in!");
+            if(err){return next(err);}
+            return res.redirect("/navigation");
+        })
+      })(req, res, next);
+
+      /*
         passport.authenticate("local")(req, res, function () {
           if(!req.user){
+            console.log("reached the controller");
             req.flash("notice", "Sign in failed. Please try again.")
             res.redirect("/users/sign_in");
           } else {
             req.flash("notice", "You've successfully signed in!");
-            res.redirect("/");
+            res.redirect("/navigation");
           }
         })
+      */
     },
     signOut(req, res, next){
         req.logout();
