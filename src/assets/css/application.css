@@ -17,3 +17,19 @@ body {
     text-align: center;
     padding: 5%;
 }
+
+.continentImage {
+    margin-top: 30px;
+    width: 90%;
+    height: 90%;
+    max-height: 600px;
+    border: 1px solid black;
+}
+
+.countries {
+    margin: 4%;
+    width: 150px;
+    height: 100px;
+    text-align: center;
+    padding: 5%;
+}

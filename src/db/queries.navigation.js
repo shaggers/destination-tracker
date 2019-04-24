@@ -1,4 +1,5 @@
 const Continent = require("./models").Continents;
+const Country = require("./models").Countries;
 
 module.exports = {
 
@@ -11,8 +12,14 @@ module.exports = {
       callback(err);
     })
   },
-  getContinent(id, callback){
-    return Continent.findByPk(id)
+  getContinent(name, callback){
+    return Continent.findOne({where: {name: name},
+        include: [{
+            model: Country,
+            as: "countries"
+        }]
+    })
+        
     .then((continent) => {
       callback(null, continent);
     })

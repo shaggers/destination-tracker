@@ -9,7 +9,26 @@
     <main class="container">
       <h1><%= continent.name %></h1>
 
-      <p><%= continent.description %></p>
+      <div class="container">
+          <div class="row">
+            <div class="col">
+              <% include ./partials/continentImages.ejs %>
+            </div>
+            <div class="col">
+              <div class="container">
+                  <ul class="list-group">
+                    <div class="row">
+                        <% continent.countries.forEach((country) => { %>
+                          <li class="countries list-group-item border rounded col-5">
+                            <a href="/navigation/<%= continent.name %>/countries/<%= country.name %>"> <%= country.name %> </a>
+                          </li>
+                        <% }) %>
+                    </div>
+                  </ul>
+              </div>
+            </div>
+          </div>
+      </div>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

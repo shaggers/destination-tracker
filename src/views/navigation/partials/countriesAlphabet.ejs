@@ -1,0 +1,16 @@
+<% let firstLetter; %>
+<% for(let i = 0 ; i < continent.countries.length ; i++ ){ %>
+
+    <% if(!firstLetter){ %>
+        <% firstLetter = continent.countries[i].name.charAt(0); %>
+        <p><% firstLetter.toUpperCase(); %></p>
+    <% } else if(firstLetter != continent.countries[i].name.charAt(0)) { %>
+        <% firstLetter = continent.countries[i].name.charAt(0); %>
+        <p><% firstLetter.toUpperCase(); %></p>
+    <% } %>
+
+    <li class="countries list-group-item border rounded col-5">
+        <a href="/navigation/<%= continent.name %>/countries/<%= continent.countries[i].name %>"> <%= continent.countries[i].name %> </a>
+    </li>
+
+<% } %>

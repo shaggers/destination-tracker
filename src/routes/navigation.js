@@ -4,6 +4,6 @@ const router = express.Router();
 const navigationController = require("../controllers/navigationController")
 
 router.get("/navigation", navigationController.index);
-router.get("/navigation/:id", navigationController.show);
+router.get("/navigation/:name", navigationController.show);
 
 module.exports = router;

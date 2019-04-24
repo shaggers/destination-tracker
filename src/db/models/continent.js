@@ -7,11 +7,15 @@ module.exports = (sequelize, DataTypes) => {
     },
     acronym: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      primaryKey: true
     }
   }, {});
   Continent.associate = function(models) {
-    // associations can be defined here
+    Continent.hasMany(models.Countries, {
+      foreignKey: "continent",
+      as: "countries"
+    });
   };
   return Continent;
 };

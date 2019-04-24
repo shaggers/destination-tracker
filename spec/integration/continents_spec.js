@@ -41,10 +41,10 @@ describe("routes : navigation", () => {
 
     });
 
-    describe("GET /navigation/:id", () => {
+    describe("GET /navigation/:name", () => {
 
         it("should render a view with the selected continent", (done) => {
-          request.get(`${base}${this.continent.id}`, (err, res, body) => {
+          request.get(`${base}${this.continent.name}`, (err, res, body) => {
             expect(err).toBeNull();
             expect(body).toContain("Asia");
             done();

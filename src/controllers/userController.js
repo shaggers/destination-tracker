@@ -3,7 +3,13 @@ const passport = require("passport");
 
 module.exports = {
     signUp(req, res, next){
-      res.render("users/sign_up");
+
+      if(!req.user) {
+        res.render("users/sign_up");
+      } else {
+        req.flash("notice", "You are already signed in")
+        res.redirect("/navigation")
+      }
     },
     create(req, res, next){
 
@@ -26,7 +32,13 @@ module.exports = {
      });
     },
     signInForm(req, res, next){
-        res.render("users/sign_in");
+        
+        if(!req.user) {
+          res.render("users/sign_in");
+        } else {
+          req.flash("notice", "You are already signed in")
+          res.redirect("/navigation")
+        }
     },
     signIn(req, res, next){
 

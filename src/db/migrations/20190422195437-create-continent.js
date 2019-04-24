@@ -5,7 +5,6 @@ module.exports = {
       id: {
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true,
         type: Sequelize.INTEGER
       },
       name: {
@@ -14,7 +13,8 @@ module.exports = {
       },
       acronym: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
       },
       createdAt: {
         allowNull: false,

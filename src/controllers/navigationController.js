@@ -2,23 +2,37 @@ const navigationQueries = require("../db/queries.navigation.js");
 
 module.exports = {
     index(req, res, next){
-        navigationQueries.getAllContinents((err, continents) => {
-            if(err){
-                res.redirect(500, "static/index");
-            } else {
-                res.render("navigation/index", {continents});
-            }
-        })
+
+        if(req.user){
+
+            navigationQueries.getAllContinents((err, continents) => {
+                if(err){
+                    res.redirect(500, "static/index");
+                } else {
+                    res.render("navigation/index", {continents});
+                }
+            })
+
+        } else {
+            req.flash("notice", "You must be signed in to do that")
+            res.redirect("/")
+        }
     },
     show(req, res, next){
 
-        navigationQueries.getContinent(req.params.id, (err, continent) => {
+        if(req.user){
 
-        if(err || continent == null){
-            res.redirect(404, "/");
+            navigationQueries.getContinent(req.params.name, (err, continent) => {
+                if(err || continent == null){
+                    res.redirect(404, "/");
+                } else {
+                    res.render("navigation/show", {continent});
+                }
+            });
+
         } else {
-            res.render("navigation/show", {continent});
-        }
-     });
+            req.flash("notice", "You must be signed in to do that")
+            res.redirect("/")
+        } 
    }
-  }
+}
